@@ -1,4 +1,4 @@
-﻿// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream> 
@@ -35,8 +35,8 @@ int main()
 		printf("1.Заполнить множества вручную\n");
 		printf("2.Сгенерировать случайные набор 16 чисел\n");
 		printf("3.Выход\n");
-		printf("4.Вывести множества\n\n");
-		printf("5.Запустить машину судного дня.\n");
+		printf("4.Вывести множества\n");
+		printf("5.Произвести вычисления  \n");
 	
 		cin >> input;
 		cout << endl;
@@ -152,7 +152,7 @@ int main()
 			printf("Множества сгенерированны!\n");
 		}
 		break;
-		case 3: //просто сразу выходим из программы
+		case 3: // выходим из программы
 		{
 			exit = true;
 			
@@ -210,15 +210,13 @@ int main()
 		}
 		case 5:
 			if (generated == true) {
-				printf("Началось...\n\n");
 				//A ∪ B ⊕ C \ D \ E
 				set_union(setA.begin(), setA.end(), setB.begin(), setB.end(), inserter(tempres, tempres.begin()));
 				set_symmetric_difference(tempres.begin(), tempres.end(), setC.begin(), setC.end(), inserter(tempres1, tempres1.begin()));
 				set_difference(tempres.begin(), tempres.end(), setD.begin(), setD.end(), inserter(tempres, tempres.begin()));
 				set_difference(tempres1.begin(), tempres1.end(), setE.begin(), setE.end(), inserter(result, result.begin()));
 
-				printf("Полученное множество:\n\n");
-				printf("Результат (убил):\n");
+				printf("Полученное множество: \n\n");
 				for (auto& item : result)
 				{
 					cout << item;
@@ -229,11 +227,11 @@ int main()
 			}
 			else
 			{
-				printf("Не-а, вы не можете запустить машину судного дня без генерации векторов");
+				printf("\nСначала надо заполнить множества.\n");
 			}
-			
+			break;
 
-		default://если кто-то решил поумничать и ввести то, чего в пунктах нет
+		default://если введена отсутсвующая опция
 			
 			printf("Выберите одну из доступных опций.\n");
 			break;
